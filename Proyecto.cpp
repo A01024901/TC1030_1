@@ -10,6 +10,7 @@ class usuario {
     char estatus;
     char area_n;
     char region;
+    char nom;
   //Declaramos sus atributos protegidos
   protected:
     char ID;
@@ -18,6 +19,7 @@ class usuario {
   //Declaramos sus metodos que en este caso todos son publicos 
   public: 
     usuario (char , char , char ,char , char , char); //Constructor
+    usuario (int ID, char contraseña, char estatus, char area_n, char region, char nombre);
       char crear() {return ID;} //metodo con return
       int verificar () {return comp;}
       void enviar_mensaje(char ID); //metodos con input
@@ -25,10 +27,19 @@ class usuario {
 
 //En el constructor identificamos las variables que vamos a usar con la clase usuario y sus clases hijas (heredadas)
 
-usuario::usuario (char _estatus , char _area_n , char _region ,char _ID , char _contraseña , char _comp ){
+usuario::usuario (char _estatus , char _area_n , char _region ,char _ID , char _contraseña , char _comp){
   ID = _ID;
   contraseña = _contraseña;
   comp = _comp;
+  estatus = _estatus;
+  area_n = _area_n;
+  region = _region;
+}
+
+usuario::usuario (int _ID, char _contraseña, char _estatus, char _area_n, char _region, char _nombre){
+  ID = _ID;
+  contraseña = _contraseña;
+  nom = _nombre;
   estatus = _estatus;
   area_n = _area_n;
   region = _region;
@@ -93,6 +104,8 @@ class producto {
       void cambiar_precio ();
 };
 
-char negocio::crear(char nombre_producto){
-  
-} 
+
+int main (){
+  usuario us("Activo" , "Autobuses" , "Naucalpan" , "Alternet" , "1234uml" , "comp" );
+  us.crear();
+}
